@@ -7,7 +7,7 @@ const CategoriesSchema = new Schema({
     code: {
         type: String
     },
-},
+    },
     {
         timestamps: true
     })
