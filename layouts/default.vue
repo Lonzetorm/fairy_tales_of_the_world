@@ -1,6 +1,6 @@
 <template>
     <div>
-        <body class="bg-white dark:bg-slate-900 font-main text-white">
+        <body class="bg-white dark:bg-slate-900 font-main">
     <div class="max-w-screen-xl mx-auto h-screen grid grid-rows-[auto_1fr_auto]">
             <ElHeader/>
             
