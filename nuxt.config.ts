@@ -3,5 +3,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     '@nuxtjs/tailwindcss'
-  ]
+  ],
+  nitro: {
+    plugins: ["~/server/index.ts"]
+  },
+  runtimeConfig: {
+    mongodbUri: process.env.MONGODB_URI
+  }
 })

@@ -27,5 +27,7 @@
         }
       }
   )
+
+  console.log(tales, 'tales: ')
   
   </script>

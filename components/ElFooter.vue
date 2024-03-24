@@ -1,10 +1,12 @@
 <template>
-     <header class="px-2 border-b bg-green-500 flex items-center justify-between h-10">
-        <a
-          class="dark:text-purple-500 font-bold"
-          href="#"
-          >
-          © azaza
-        </a>
+     <header class="border-b bg-green-500 ">
+       <div class="px-2 flex items-center justify-between h-10 max-w-screen-xl mx-auto">
+         <a
+             class="dark:text-purple-500 font-bold text-white"
+             href="#"
+         >
+           © azaza
+         </a>
+       </div>
       </header>
 </template>

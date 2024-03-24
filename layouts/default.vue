@@ -1,19 +1,18 @@
 <template>
     <div>
-        <body class="bg-white dark:bg-slate-900 font-main">
-    <div class="max-w-screen-xl mx-auto h-screen grid grid-rows-[auto_1fr_auto]">
-            <ElHeader/>
-            
-            <div class="flex">
-                <div class="w-1/5">
-                    <Sidebar/>
-                </div>
-                <div class="w-4/5">
-                    <slot/>  
-                </div>
+        <body class="bg-white dark:bg-slate-900 font-main h-screen grid grid-rows-[auto_1fr_auto] mx-auto">
+        <ElHeader/>
+            <div class="max-w-screen-xl mx-auto">
+              <div class="flex">
+                  <div class="w-1/5 mt-4 ml-4 mr-2">
+                      <Sidebar/>
+                  </div>
+                  <div class="w-4/5 my-4 ml-2 mr-4">
+                      <slot/>
+                  </div>
+              </div>
             </div>
-            <ElFooter/>
-            </div>
+        <ElFooter/>
         </body>
     </div>
 </template>
