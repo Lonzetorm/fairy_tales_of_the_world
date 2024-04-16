@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="ml-5 border border-solid border-gray-200 rounded-lg p-4">
+    <div class="border border-solid border-gray-200 rounded-lg p-4">
       <h1 class="font-bold mb-3 text-center">
         {{ tale.name }}
       </h1>

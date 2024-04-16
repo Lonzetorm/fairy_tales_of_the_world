@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-5 mr-5 grid grid-cols-4 gap-5">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
     <div
         v-for="(people, index) in peoples" :key="index"
         class="border border-solid border-gray-200 rounded-lg p-4 hover:border-green-400"
