@@ -6,7 +6,7 @@
           СНМ
         </NuxtLink>
         <div class="flex">
-          <LoginIcon class="mr-4 my-auto" @click="store.modalAuthCall = true"/>
+          <LoginIcon class="mr-4 my-auto cursor-pointer" @click="store.modalAuthCall = true"/>
           <Search class="mr-4 hidden md:block"/>
           <SearchIcon class="mr-4 my-auto md:hidden"/>
         </div>
@@ -16,7 +16,5 @@
 
 <script setup lang="ts">
 const store = useMainStore()
-
-console.log('store: ', store.modalAuthCall)
 
 </script>

@@ -6,10 +6,7 @@ export default defineNuxtConfig({
       title: 'Народные сказки',
     }
   },
-  modules: [
-    '@nuxtjs/tailwindcss',
-    '@pinia/nuxt'
-  ],
+  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   nitro: {
     plugins: ["~/server/index.ts"]
   },
