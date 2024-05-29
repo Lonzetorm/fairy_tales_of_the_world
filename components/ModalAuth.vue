@@ -60,4 +60,6 @@ function close() {
   store.modalAuthCall = false
 }
 
+
+
 </script>
