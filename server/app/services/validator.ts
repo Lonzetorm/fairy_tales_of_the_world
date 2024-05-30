@@ -29,7 +29,7 @@ async function validateRegistration(key: string, value: string): Promise<InputVa
     if (key == 'password') {
         if (value.length < 8) {
             check.hasError = true
-            check.errorMessage = `password must be at least 8 characters`
+            check.errorMessage = `Пароль должен содержать минимум 8 символов`
         }
         check.lenghtMin8 = false
     }
@@ -39,18 +39,18 @@ async function validateRegistration(key: string, value: string): Promise<InputVa
         if (email) {
             check.emailTaken = true
             check.hasError = true
-            check.errorMessage = `Email is invalid or already taken`
+            check.errorMessage = `Электронный адрес уже занят`
         }
     }
 
-    if (key == 'username') {
-        const username = await getUserByUserName(value)
-        if (username) {
-            check.usernameTaken = true
-            check.hasError = true
-            check.errorMessage = `Username is invalid or already taken`
-        }
-    }
+    // if (key == 'name') {
+    //     const name = await getUserByUserName(value)
+    //     if (name) {
+    //         check.usernameTaken = true
+    //         check.hasError = true
+    //         check.errorMessage = `Такое имя пользователя уже занято`
+    //     }
+    // }
 
     return check
 }

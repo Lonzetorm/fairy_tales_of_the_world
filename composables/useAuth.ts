@@ -44,7 +44,7 @@ export async function userLogout() {
 }
 
 export async function registerWithEmail(
-    username: string,
+    name: string,
     email: string,
     password: string
 ): Promise<FormValidation> {
@@ -52,12 +52,11 @@ export async function registerWithEmail(
   try {
     const data = await $fetch<ISession>('/api/auth/register', {
       method: 'POST',
-      body:  { username, email, password }
+      body:  { name, email, password }
     })
 
     if (data) {
       useState('user').value = data
-      //todo закрытие окна регистрации
     }
 
     return { hasErrors: false, loggedIn: true }

@@ -3,19 +3,19 @@ import { H3Event } from "h3"
 
 const bodySchema = z.object({
 
-    username: z.string({
+    name: z.string({
         required_error: 'name required',
     })
-        .min(1, { message: 'name required' }),
+        .min(1, { message: 'Не введено имя' }),
 
     email: z.string({
         required_error: 'valid email required',
-    }).email({ message: 'valid email required' }),
+    }).email({ message: 'Требуется электронный адрес' }),
 
     password: z.string({
         required_error: 'password required',
     })
-        .min(8, { message: 'password must be at least 8 characters' })
+        .min(8, { message: 'Пароль должен содержать минимум 8 символов' })
 })
 
 export default async function registerRequest(event: H3Event) {

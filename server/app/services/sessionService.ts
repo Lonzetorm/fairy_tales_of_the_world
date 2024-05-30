@@ -21,5 +21,5 @@ export async function makeSession(user: User, event: H3Event): Promise<User|unde
 export async function getUserBySessionToken(authToken: string): Promise<User|undefined> {
     const session = await getSessionByAuthToken(authToken)
 
-    return sanitizeUserForFrontend(session.user)
+    // return sanitizeUserForFrontend(session.user)
 }
