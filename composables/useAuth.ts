@@ -50,7 +50,6 @@ export async function registerWithEmail(
 ): Promise<FormValidation> {
 
   try {
-    console.log('registerWithEmail 2')
     const data = await $fetch<ISession>('/api/auth/register', {
       method: 'POST',
       body:  { username, email, password }

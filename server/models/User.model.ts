@@ -13,10 +13,6 @@ const UsersSchema = new Schema({
             type: String,
             required: true
         },
-        // rights: {
-        //     type: Number,
-        //     required: true
-        // },
     },
     {
         timestamps: true

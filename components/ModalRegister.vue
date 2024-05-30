@@ -62,14 +62,16 @@ const errors: Ref<Map<string, { message: InputValidation; }> | undefined> = ref(
 let response: FormValidation
 
 async function postRegisterForm() {
-  console.log(password)
-  console.log(repeat_password)
   if (password.value === repeat_password.value) {
-    console.log('registerWithEmail 1')
     response = await registerWithEmail(name.value, email.value, password.value);
-    errors.value = response.errors
+    if (response.hasErrors) {
+      //todo Доделать обработку ошибок
+      errors.value = response.errors
+    } else {
+      close()
+    }
   } else {
-    console.log('no pass')
+    console.log('Пароли не совпадают')
   }
 }
 

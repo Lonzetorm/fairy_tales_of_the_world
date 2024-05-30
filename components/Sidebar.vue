@@ -18,7 +18,6 @@
 <script lang="ts" setup>
   import {useFetch} from "nuxt/app";
 
-  const route = useRoute()
-  const {data: categories} = useFetch('/api/categories/')
+  const { data: categories } = useFetch('/api/categories/')
   
 </script>
