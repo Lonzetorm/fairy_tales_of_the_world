@@ -1,4 +1,4 @@
-import { getUserByEmail, getUserByUserName } from "~/server/database/repositories/userRespository"
+import { getUserByEmail } from "~/server/database/repositories/userRespository"
 import { RegistrationRequest } from "~/types/IRegistration"
 
 
@@ -36,21 +36,12 @@ async function validateRegistration(key: string, value: string): Promise<InputVa
 
     if (key == 'email') {
         const email = await getUserByEmail(value)
-        if (email) {
+        if (email.length !== 0) {
             check.emailTaken = true
             check.hasError = true
             check.errorMessage = `Электронный адрес уже занят`
         }
     }
-
-    // if (key == 'name') {
-    //     const name = await getUserByUserName(value)
-    //     if (name) {
-    //         check.usernameTaken = true
-    //         check.hasError = true
-    //         check.errorMessage = `Такое имя пользователя уже занято`
-    //     }
-    // }
 
     return check
 }

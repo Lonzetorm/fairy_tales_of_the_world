@@ -31,7 +31,7 @@ export default eventHandler(async (event: H3Event) => {
       return sendError(event, createError({ statusCode: 422, data: errors }))
     }
     //
-    const encryptedPassword: string = await bcrypt.hash('guk', 10)
+    const encryptedPassword: string = await bcrypt.hash(req.password, 10)
 
     // const userData: IUser = {
     //   name: data.name,
@@ -39,7 +39,7 @@ export default eventHandler(async (event: H3Event) => {
     //   password: encryptedPassword,
     //   rights: 0
     // }
-      await CreateUser(req.username, req.email, encryptedPassword)
+      await CreateUser(req.name, req.email, encryptedPassword)
     //
     // const user = await createUser(userData)
     //

@@ -2,29 +2,13 @@
 // import prisma from "~/server/database/client";
 import { IUser } from '~/types/IUser';
 import { ISubscription } from "~/types/ISubscription";
+import { Users } from "~/server/models/User.model";
+// import { useFetch } from "nuxt/app";
 
-export async function getUserByEmail(emailOrEmail: string): Promise<User|null> {
-  // return await prisma.user.findFirst({
-  //   where: {
-  //     OR:
-  //       [
-  //         { email: emailOrEmail },
-  //         { username: emailOrEmail },
-  //       ]
-  //   }
-  // })
-}
+export async function getUserByEmail(email: string) {
+    let filter = { email: email }
 
-export async function getUserByUserName(username: string) {
-  // return await prisma.user.findUnique({
-  //   where: {
-  //     username: username,
-  //   },
-  //   select: {
-  //     id: true,
-  //     username: true,
-  //   },
-  // })
+    return Users.find(filter)
 }
 
 export async function createUser(data: IUser) {
