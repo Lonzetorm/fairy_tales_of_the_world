@@ -1,5 +1,5 @@
 <template>
-  <div class="ml-5 grid grid-cols-4 gap-5">
+  <div class="ml-5 grid md:grid-cols-4 gap-5">
     <div
         v-for="(tale, index) in tales" :key="index"
         class="border border-solid border-gray-200 rounded-lg p-4 hover:border-green-400"

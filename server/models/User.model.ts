@@ -1,7 +1,7 @@
 import {model, Schema} from "mongoose";
 
 const UsersSchema = new Schema({
-        username: {
+        name: {
             type: String,
             required: true
         },
@@ -13,10 +13,6 @@ const UsersSchema = new Schema({
             type: String,
             required: true
         },
-        // rights: {
-        //     type: Number,
-        //     required: true
-        // },
     },
     {
         timestamps: true

@@ -1,11 +1,22 @@
 <template>
   <div class="border border-solid border-gray-200 rounded-lg p-4">
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean pretium felis nunc, a porta tellus hendrerit porta. Nullam molestie risus quam, sit amet fermentum leo ornare at. Fusce tincidunt, tellus eget imperdiet mollis, nulla magna mollis est, et vulputate lectus sem ac erat. Curabitur eget elit vestibulum, facilisis ante id, egestas ligula. In eros eros, aliquet id laoreet elementum, faucibus at libero. Donec non nibh laoreet, hendrerit leo sit amet, scelerisque leo. Aliquam venenatis, nulla tempor auctor blandit, dui massa efficitur mi, sit amet congue sem lacus eget mauris. Sed egestas metus nisi, gravida finibus ex eleifend vel. Ut sed ex eget eros porta dictum. Maecenas quis risus dui.
-
-    Suspendisse potenti. Nulla libero ex, tempus eget ultrices nec, placerat a velit. Donec eget dui ac urna sagittis imperdiet eget malesuada quam. Sed ligula diam, congue in aliquam sagittis, pellentesque sit amet enim. Pellentesque elit lorem, ullamcorper vel turpis eget, vulputate fermentum enim. Nullam luctus commodo nibh. Integer imperdiet felis vitae orci fermentum cursus ut at tortor. Nulla facilisi. Praesent non semper nulla. Phasellus feugiat vitae ex a elementum. Vestibulum non ullamcorper velit, sit amet scelerisque augue. Nulla facilisis accumsan dignissim. Vivamus at ligula eget elit blandit placerat.
-
-    Quisque lacinia aliquam mollis. Donec in tellus ut nibh placerat elementum. Donec rhoncus cursus tortor ut gravida. Ut id diam ex. Donec eu lectus imperdiet, dictum leo a, tristique quam. Nulla vitae magna ut lectus congue aliquam. Fusce quis congue velit, at vehicula elit.
-
-    Vivamus pulvinar eleifend quam. Proin in elementum tellus. Aliquam eget ornare justo. Maecenas vitae nulla consequat, efficitur urna eget, fringilla nunc. Quisque tempor, lorem sed dictum mollis, odio libero lobortis dui, hendrerit congue ligula tellus at mi. Vivamus nec lobortis ex. Sed eget malesuada leo. Morbi tincidunt, sem eget sagittis ultricies, dolor urna venenatis erat, sed gravida mi metus nec mi. Integer urna ligula, suscipit at venenatis eget, efficitur at purus. Nulla eget accumsan elit. Nullam facilisis mi purus, nec finibus justo euismod nec. Quisque dignissim arcu vitae varius viverra. Phasellus venenatis vitae libero ut semper. Nam dolor arcu, pellentesque nec fermentum et, feugiat suscipit libero. Aenean sagittis vestibulum consectetur. Donec sollicitudin quis nisi nec luctus.
+    Изначально этот сайт задумывался как большой онлайн-архив сказов разных народов. То есть, именно народных, а не авторских сказок, во-первых. А во-вторых,
+    хотелось собрать как можно больше. Ну и помимо этого хотелось бы, чтобы у читателя была возможность ознакомиться со сказкой на языке оригинала. А в идеале
+    ещё и на языке оригинала записи (к примеру, одна из записей русской "Морозко" на Вологодчине на вологодском соответственно, говоре). То есть, такая больше
+    работа по стрктуризации и созданию детальной картотеки. Однако впоследствии закрались мысли, что сказки могут читать родители детям на ночь, и тогда это уже
+    совсем другая история. Во-первых, тогда нельзя давать оригиналы некоторых сказок, поскольку они довольно кровожадны бывают. Во-вторых, детям не нужны сказки
+    на языке оригинала записи к примеру (только если родители не решат иначе, конечно). И помимом всего прочего, после просмотра ряда сайтов на аналогичную тематику,
+    родилась идея, что это дело можно монетизировать с помощью размещения рекламы, а в таком случае совершенно точно нужны обычные версии сказок, плюс, скорее всего,
+    понадобятся и авторские и много чего другого. Но тогда рушится изначальная концепция сайта, как веб-архива сказок народов мира с оригинальными записями,
+    и не понятно пока, как с этим быть. Возможно, будет действительно версия для чтения детям (и детьми, вероятно) и отдельная версия для тех, кто хочет узнать
+    побольше о происхождении сказки. То есть, наверное, ядром сайта, его контента, всё же будут сказки народов мира (на что как бы намекает его название, и с этим,
+    возможно, тоже придётся что-то делать, поскольку там будут уже тогда не только народные сказки, но и многое другое), а с остальным уже будет разбираться.
+    И не совсем понятно, как быть с потенциальной рекламой, если это условно "детская версия сайта". Если такая вообще будет. Возможно, похерю просто первоначальную
+    задумку. Посмотрим. Пока будет набирать всё, что надо. Потом в конце концов будет уже готовый шаблон, который наполнить можно будет в принципе чем угодно
+    <br>
+    <br>
+    Скорее всего надо будет ещё поанализровать опыт других сайтов. К примеру, вспомнил, что касаемо оригиналов сказок, на некоторых сайтах есть предупреждение для
+    родителей, что оригинал не стоит читать детям. Плюс, раз ставится уже больше цель именно заработка на рекламе, то надо думать, чем ещё помимо большого количества
+    именно народых сказок мы можем привлечь читателей
   </div>
 </template>

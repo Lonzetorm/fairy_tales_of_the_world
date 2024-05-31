@@ -3,8 +3,10 @@ import { defineStore } from 'pinia'
 export const useMainStore = defineStore('main', {
     state: () => ({
         project: {
-            title: 'Сказки',
+            title: 'Народные сказки',
         },
-        modalAuthLogin: true
+        modalAuthLogin: true,
+        modalAuthCall: false,
+        modalRegisterCall: false,
     })
 })

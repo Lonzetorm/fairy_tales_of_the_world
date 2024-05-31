@@ -1,12 +1,20 @@
 <template>
-    <header class="px-2 border-b bg-green-500 flex items-center justify-between h-12">
-        <a
-          class="dark:text-purple-500 font-bold text-logo-main"
-          href="#"
-          >Сказки народов мира</a
-        >
-        <NuxtLink to="/">
-            По народам
+    <header class="border-b bg-green-500">
+      <div class="flex items-center justify-between h-12 text-white max-w-screen-xl mx-auto">
+        <MenuIcon class="md:hidden ml-4"/>
+        <NuxtLink class="dark:text-purple-500 font-bold text-logo-main ml-4" to="/">
+          СНМ
         </NuxtLink>
-      </header>
+        <div class="flex">
+          <LoginIcon class="mr-4 my-auto cursor-pointer" @click="store.modalAuthCall = true"/>
+          <Search class="mr-4 hidden md:block"/>
+          <SearchIcon class="mr-4 my-auto md:hidden"/>
+        </div>
+      </div>
+    </header>
 </template>
+
+<script setup lang="ts">
+const store = useMainStore()
+
+</script>
