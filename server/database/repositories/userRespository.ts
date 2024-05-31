@@ -1,9 +1,6 @@
-// import { User } from "@prisma/client";
-// import prisma from "~/server/database/client";
 import { IUser } from '~/types/IUser';
 import { ISubscription } from "~/types/ISubscription";
 import { Users } from "~/server/models/User.model";
-// import { useFetch } from "nuxt/app";
 
 export async function getUserByEmail(email: string) {
     let filter = { email: email }
@@ -11,18 +8,13 @@ export async function getUserByEmail(email: string) {
     return Users.find(filter)
 }
 
-export async function createUser(data: IUser) {
-  // const user = await prisma.user.create({
-  //   data: {
-  //     username: data.username,
-  //     name: data.name,
-  //     email: data.email,
-  //     loginType: data.loginType,
-  //     password: data.password,
-  //   },
-  // })
-  //
-  // return user
+export async function createUser(name: string, email: string, password: string) {
+    return await Users.create({ name, email, password })
+        .then((data) => {
+            return data
+        }).catch((error) => {
+            throw error
+        })
 }
 
 export async function getUserById(id: number) {
@@ -39,33 +31,10 @@ export async function getUserById(id: number) {
   // })
 }
 
-export async function getUserByStripeCustomerId(stripeCustomerId: string) {
-  // return await prisma.user.findFirst({
-  //   where: {
-  //     stripeCustomerId: stripeCustomerId,
-  //   },
-  //   select: {
-  //     id: true,
-  //     username: true,
-  //     email: true,
-  //     stripeCustomerId: true,
-  //   },
-  // })
-}
-
 export async function getSubscriptionById(stripeId: string) {
   // return await prisma.subscription.findFirst({
   //   where: {
   //     stripeId: stripeId,
-  //   }
-  // })
-}
-
-export async function updateStripeCustomerId(data: IUser) {
-  // return await prisma.user.update({
-  //   where: { email: data.email },
-  //   data: {
-  //     stripeCustomerId: data.stripeCustomerId,
   //   }
   // })
 }
