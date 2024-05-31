@@ -1,4 +1,3 @@
-
 import {Tales} from "~/server/models/Tale.model";
 
 export default defineEventHandler((event) => {
