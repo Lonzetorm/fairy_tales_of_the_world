@@ -8,9 +8,10 @@ export default defineNuxtConfig({
   },
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt'],
   nitro: {
-    plugins: ["~/server/index.ts"]
+    plugins: ["~/server/index.ts", "~/server/plugins/storage.ts"],
   },
   runtimeConfig: {
+    redisHost: 'localhost',
     mongodbUri: process.env.MONGODB_URI
   }
 })

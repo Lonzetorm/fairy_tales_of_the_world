@@ -55,6 +55,10 @@ export async function registerWithEmail(
       body:  { name, email, password }
     })
 
+    const redisRes = await $fetch('/api/storage/redis')
+
+    console.log('redisRes: ', redisRes)
+
     if (data) {
       useState('user').value = data
     }
