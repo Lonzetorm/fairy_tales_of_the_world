@@ -5,14 +5,14 @@ const CommentsSchema = new Schema({
             type: String,
             required: true
         },
-        date: {
+        userName: {
             type: String,
             required: true
         },
-        user: {
+        taleId: {
             type: String,
             required: true
-        },
+        }
     },
     {
         timestamps: true

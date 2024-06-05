@@ -9,6 +9,7 @@
         {{ tale.text }}
       </p>
     </div>
+    <Comments/>
   </div>
 </template>
 
