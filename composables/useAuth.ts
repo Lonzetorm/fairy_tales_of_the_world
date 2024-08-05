@@ -50,14 +50,10 @@ export async function registerWithEmail(
 ): Promise<FormValidation> {
 
   try {
-    const data = await $fetch<ISession>('/api/auth/register', {
+    const data = await $fetch('/api/auth/register', {
       method: 'POST',
       body:  { name, email, password }
     })
-
-    const redisRes = await $fetch('/api/storage/redis')
-
-    console.log('redisRes: ', redisRes)
 
     if (data) {
       useState('user').value = data
@@ -77,7 +73,6 @@ export async function loginWithEmail(usernameOrEmail: string, password: string):
       throw Error('something went wrong')
     }
     useState('user').value = result
-    await useRouter().push('/topics')
 
     return { hasErrors: false, loggedIn: true }
   } catch (error: any) {

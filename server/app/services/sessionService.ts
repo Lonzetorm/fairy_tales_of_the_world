@@ -10,14 +10,18 @@ export async function makeSession(user: any, event: H3Event) {
 
     if (userId) {
         setCookie(event, 'auth_token', authToken, { path: '/', httpOnly: true })
+
         return getUserBySessionToken(authToken)
     }
+
+    return userId
 
     throw Error('Error Creating Session')
 }
 
 export async function getUserBySessionToken(authToken: string) {
     const session = await getSessionByAuthToken(authToken)
+    return session.user.item.authToken
 
-    return sanitizeUserForFrontend(session.user)
+    // return sanitizeUserForFrontend(session.user)
 }

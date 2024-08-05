@@ -6,7 +6,16 @@
           СНМ
         </NuxtLink>
         <div class="flex">
-          <LoginIcon class="mr-4 my-auto cursor-pointer" @click="store.modalAuthCall = true"/>
+          <LoginIcon
+              class="mr-4 my-auto cursor-pointer"
+              @click="store.modalAuthCall = true"
+              v-if="useState('user').value === undefined"
+          />
+          <LogoutIcon
+              class="mr-4 my-auto cursor-pointer"
+              @click="logout"
+              v-if="useState('user').value !== undefined"
+          />
           <Search class="mr-4 hidden md:block"/>
           <SearchIcon class="mr-4 my-auto md:hidden"/>
         </div>
@@ -15,6 +24,8 @@
 </template>
 
 <script setup lang="ts">
+import {useState} from "nuxt/app";
+
 const store = useMainStore()
 
 </script>
