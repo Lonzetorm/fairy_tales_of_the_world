@@ -23,7 +23,7 @@ export function sanitizeUserForFrontend(user: IUser | undefined): User | undefin
         return user
     }
 
-    delete user.password;
+    // delete user.password;
 
     return user as User
 }
