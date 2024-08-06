@@ -70,14 +70,15 @@ export async function loginWithEmail(usernameOrEmail: string, password: string):
   try {
     const result = await $fetch('/api/auth/login', { method: 'POST', body: { usernameOrEmail: usernameOrEmail, password: password } })
 
-    if (!result?.id) {
+    if (!result?._id) {
       throw Error('something went wrong')
     }
     useState('user').value = result
-    await useRouter().push('/topics')
 
     return { hasErrors: false, loggedIn: true }
   } catch (error: any) {
-    return useErrorMapper(error.data.data)
+    //todo: Поправить
+
+    // return useErrorMapper(error.data.data)
   }
 }
