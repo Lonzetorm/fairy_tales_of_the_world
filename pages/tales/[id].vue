@@ -10,6 +10,7 @@
       </p>
     </div>
     <Comments/>
+    <AddComment/>
   </div>
 </template>
 
