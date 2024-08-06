@@ -1,5 +1,6 @@
 export default defineEventHandler(async (event) => {
     const storage = global.storage;
+    let req = await readBody(event)
 
     if (!storage) {
         console.error('Storage is not available');
@@ -7,12 +8,7 @@ export default defineEventHandler(async (event) => {
     }
 
     try {
-
-        await storage.setItem('foou', 'bakkraggggm');
-        console.log('Value set successfully');
-
-
-        const item = await storage.getItem('foou');
+        const item = await storage.getItem(req.authToken);
         console.log('Retrieved item from storage:', item);
 
 

@@ -38,8 +38,9 @@ export async function useLoggedIn() {
 }
 
 export async function userLogout() {
-  await useFetch('/api/auth/logout')
-  useState('user').value = null
+  // await useFetch('/api/auth/logout')
+  //todo: Переделать проставление null на undefined
+  useState('user').value = undefined
   await useRouter().push('/')
 }
 
@@ -50,14 +51,10 @@ export async function registerWithEmail(
 ): Promise<FormValidation> {
 
   try {
-    const data = await $fetch<ISession>('/api/auth/register', {
+    const data = await $fetch('/api/auth/register', {
       method: 'POST',
       body:  { name, email, password }
     })
-
-    const redisRes = await $fetch('/api/storage/redis')
-
-    console.log('redisRes: ', redisRes)
 
     if (data) {
       useState('user').value = data
