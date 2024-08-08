@@ -1,24 +1,82 @@
 <template>
-  <div class="border border-solid border-gray-200 rounded-lg p-4 mb-4">
-    <h1 class="font-bold mb-3">
-      Добавить сказку
-    </h1>
-    <!--      <NuxtImg class="w-1/2 float-left mr-4 rounded-lg" format="webp" src="images/kolobok.jpg" alt="kolobok"/>-->
-    <p>
-
-    </p>
-  </div>
-  <div class="border border-solid border-gray-200 rounded-lg p-4">
-    <h1 class="font-bold mb-3">
-      Текст
-    </h1>
-    <!--      <NuxtImg class="w-1/2 float-left mr-4 rounded-lg" format="webp" src="images/kolobok.jpg" alt="kolobok"/>-->
-    <p>
-
-    </p>
+  <div class="border border-gray-200 p-4 rounded-lg">
+    <h2 class="font-medium mb-2">Добавить сказку</h2>
+    <form>
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="name">
+          Название
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+            id="name" type="text" placeholder="Введите название сказки" v-model="name">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="name">
+          Народ
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+            id="people" type="text" placeholder="Выберите народ" v-model="people">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="name">
+          Категория
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+            id="category" type="text" placeholder="Выберите категорию" v-model="category">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="comment">
+          Описание
+        </label>
+        <textarea rows="4"
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+                  id="description" placeholder="Введите описание сказки" v-model="description"/>
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="comment">
+          Текст
+        </label>
+        <textarea rows="4"
+                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+                  id="comment" placeholder="Введите текст сказки" v-model="text"/>
+      </div>
+      <div class="flex justify-end">
+        <button
+            class="bg-green-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            type="button"
+            @click="addFairytale"
+        >
+          Добавить
+        </button>
+      </div>
+    </form>
   </div>
 </template>
 
 <script setup lang="ts">
+import type { Ref } from "vue"
+
+const name: Ref<string> = ref('');
+const description: Ref<string> = ref('');
+const text: Ref<string> = ref('');
+const category: Ref<string> = ref('');
+const people: Ref<string> = ref('');
+
+function addFairytale() {
+  $fetch(
+      '/api/tales/set', {
+        method: 'POST',
+        body: {
+          name: name.value,
+          description: description.value,
+          text: text.value,
+          category: category.value,
+          people: people.value
+        }
+      }
+  )
+}
 
 </script>

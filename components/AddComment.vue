@@ -8,7 +8,7 @@
         </label>
         <input
             class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="name" type="text" placeholder="Enter your name">
+            id="name" type="text" placeholder="Введите Ваше имя">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="comment">
