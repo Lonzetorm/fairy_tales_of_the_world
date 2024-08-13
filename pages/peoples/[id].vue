@@ -1,4 +1,15 @@
 <template>
+  <div class="flex mb-4">
+    <div class="mb-4 w-2/3 pr-4">
+      <h1 class="font-medium text-lg">
+        {{ peopleDescription.name }} сказки
+      </h1>
+      <p v-html="peopleDescription.description"/>
+    </div>
+    <div class="rounded-lg w-1/3">
+      <img src="/images/tanuki.png"/>
+    </div>
+  </div>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
     <div
         v-for="(tale, index) in tales" :key="index"
@@ -26,6 +37,10 @@ const {data: tales} = useFetch(
         people_id: route.params.id
       }
     }
+)
+
+const {data: peopleDescription} = await useFetch(
+    '/api/peoples/' + route.params.id
 )
 
 </script>

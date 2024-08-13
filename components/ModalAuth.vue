@@ -82,7 +82,13 @@ function close() {
 
 async function postLoginForm() {
   response = await loginWithEmail(email.value, password.value)
-  errors.value = response.errors
+  if (response.loggedIn) {
+    close()
+  } else {
+    //todo: Поправить
+
+    // errors.value = response.errors
+  }
 }
 
 </script>
