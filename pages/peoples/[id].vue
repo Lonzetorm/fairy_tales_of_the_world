@@ -7,7 +7,7 @@
       <p v-html="peopleDescription.description"/>
     </div>
     <div class="rounded-lg w-1/3">
-      <img src="/images/tanuki.png"/>
+      <img src="/images/tanuki.png" class="rounded-lg"/>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
