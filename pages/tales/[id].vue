@@ -4,7 +4,6 @@
       <h1 class="font-bold mb-3 text-center">
         {{ tale.name }}
       </h1>
-<!--      <NuxtImg class="w-1/2 float-left mr-4 rounded-lg" format="webp" src="images/kolobok.jpg" alt="kolobok"/>-->
       <p v-html="tale.text"/>
     </div>
     <Comments/>
