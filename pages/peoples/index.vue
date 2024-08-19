@@ -9,7 +9,8 @@
           {{ people.name }}
         </h2>
         <p>
-          {{ people.description }}
+<!--          {{ people.description }}-->
+          Возможно, тут будет какой-то текст
         </p>
       </NuxtLink>
     </div>

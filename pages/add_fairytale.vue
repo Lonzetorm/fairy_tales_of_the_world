@@ -52,6 +52,7 @@
         </button>
       </div>
     </form>
+    <TiptapEditor/>
   </div>
 </template>
 
