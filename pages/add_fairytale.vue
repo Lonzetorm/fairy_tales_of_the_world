@@ -1,7 +1,6 @@
 <template>
   <div class="border border-gray-200 p-4 rounded-lg">
     <h2 class="font-medium mb-2">Добавить сказку</h2>
-    <form>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="name">
           Название
@@ -27,7 +26,7 @@
             id="category" type="text" placeholder="Выберите категорию" v-model="category">
       </div>
       <div class="mb-4">
-        <label class="block text-gray-700 mb-2" for="comment">
+        <label class="block text-gray-700 mb-2" for="description">
           Описание
         </label>
         <textarea rows="4"
@@ -35,12 +34,10 @@
                   id="description" placeholder="Введите описание сказки" v-model="description"/>
       </div>
       <div class="mb-4">
-        <label class="block text-gray-700 mb-2" for="comment">
+        <p class="block text-gray-700 mb-2">
           Текст
-        </label>
-        <textarea rows="4"
-                  class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-                  id="comment" placeholder="Введите текст сказки" v-model="text"/>
+        </p>
+        <TiptapEditor v-model="text" id="text"/>
       </div>
       <div class="flex justify-end">
         <button
@@ -51,8 +48,6 @@
           Добавить
         </button>
       </div>
-    </form>
-    <TiptapEditor/>
   </div>
 </template>
 
