@@ -19,6 +19,7 @@
   "dependencies": {
     "@pinia/nuxt": "^0.5.1",
     "@sidebase/nuxt-parse": "^0.3.0",
+    "@tiptap/extension-image": "^2.6.5",
     "bcrypt": "^5.1.0",
     "click-outside-vue3": "^4.0.1",
     "ioredis": "^5.4.1",
