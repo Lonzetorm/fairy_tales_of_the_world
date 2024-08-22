@@ -6,6 +6,7 @@ export default defineNuxtConfig({
       title: 'Народные сказки',
     }
   },
+  css: ['~/assets/css/main.css'],
   modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', "nuxt-tiptap-editor"],
   tiptap: {
     prefix: 'Tiptap',
