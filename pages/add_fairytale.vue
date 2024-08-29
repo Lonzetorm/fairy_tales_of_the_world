@@ -33,6 +33,9 @@
                   class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
                   id="description" placeholder="Введите описание сказки" v-model="description"/>
       </div>
+    <div>
+      <input type="file">
+    </div>
       <div class="mb-4">
         <p class="block text-gray-700 mb-2">
           Текст
