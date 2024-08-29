@@ -25,7 +25,7 @@
         <ParagraphIcon/>
       </button>
       <button
-          @click="editor.chain().focus().setImage({ src: 'https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcSZVDTn-dUdXPw1X0ztY6G92KJSHfevxYGCz2XVcPeNMgzaC_G0' }).run();"
+          @click="editor.chain().focus().setImage({ src: 'file:///C:/Users/azarov/Desktop/Моё/Картинки/13950758392410.jpg' }).run();"
           :class="{ 'is-active': editor.isActive('blockquote') }"
           class="p-4"
       >
