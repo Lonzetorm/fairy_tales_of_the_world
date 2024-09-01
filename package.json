@@ -12,16 +12,20 @@
   "devDependencies": {
     "@nuxtjs/tailwindcss": "^6.11.2",
     "nuxt": "^3.9.3",
+    "nuxt-file-storage": "^0.2.7",
     "nuxt-tiptap-editor": "^1.2.1",
     "vue": "^3.4.14",
     "vue-router": "^4.2.5"
   },
   "dependencies": {
+    "@editorjs/editorjs": "^2.30.5",
+    "@editorjs/image": "^2.9.3",
     "@pinia/nuxt": "^0.5.1",
     "@sidebase/nuxt-parse": "^0.3.0",
     "@tiptap/extension-image": "^2.6.5",
     "bcrypt": "^5.1.0",
     "click-outside-vue3": "^4.0.1",
+    "formidable": "^3.5.1",
     "ioredis": "^5.4.1",
     "mongoose": "^8.1.1",
     "pinia": "^2.1.7",
