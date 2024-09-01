@@ -33,14 +33,15 @@
                   class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
                   id="description" placeholder="Введите описание сказки" v-model="description"/>
       </div>
-    <div>
-      <input type="file">
-    </div>
       <div class="mb-4">
         <p class="block text-gray-700 mb-2">
           Текст
         </p>
-        <TiptapEditor v-model="text" id="text"/>
+<!--        <TiptapEditor v-model="text" id="text"/>-->
+        <ClientOnly>
+          <div id="editorjs" class="border border-gray-200 rounded-lg mb-2"/>
+          <MainEditor/>
+        </ClientOnly>
       </div>
       <div class="flex justify-end">
         <button
@@ -57,6 +58,7 @@
 <script setup lang="ts">
 import type { Ref } from "vue"
 
+const store = useMainStore()
 const name: Ref<string> = ref('');
 const description: Ref<string> = ref('');
 const text: Ref<string> = ref('');
@@ -64,6 +66,10 @@ const category: Ref<string> = ref('');
 const people: Ref<string> = ref('');
 
 function addFairytale() {
+  if (store.taleUploadText !== '') {
+    console.log('storeText: ', store.taleUploadText)
+    text.value = store.taleUploadText;
+  }
   $fetch(
       '/api/tales/set', {
         method: 'POST',
@@ -77,5 +83,6 @@ function addFairytale() {
       }
   )
 }
+
 
 </script>
