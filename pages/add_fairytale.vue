@@ -13,17 +13,24 @@
         <label class="block text-gray-700 mb-2" for="name">
           Народ
         </label>
-        <input
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="people" type="text" placeholder="Выберите народ" v-model="people">
+        <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+                id="people"
+                v-model="people"
+        >
+          <option v-for="(people) in peoples">
+            {{ people.name }}
+          </option>
+        </select>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="name">
           Категория
         </label>
-        <input
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="category" type="text" placeholder="Выберите категорию" v-model="category">
+        <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500" id="category" v-model="category">
+          <option v-for="(category) in categories">
+            {{ category.name }}
+          </option>
+        </select>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="description">
@@ -57,6 +64,7 @@
 
 <script setup lang="ts">
 import type { Ref } from "vue"
+import {useFetch} from "nuxt/app";
 
 const store = useMainStore()
 const name: Ref<string> = ref('');
@@ -70,6 +78,9 @@ function addFairytale() {
     console.log('storeText: ', store.taleUploadText)
     text.value = store.taleUploadText;
   }
+
+  console.log('category: ', category.value)
+  console.log('people: ', people.value)
   $fetch(
       '/api/tales/set', {
         method: 'POST',
@@ -84,5 +95,18 @@ function addFairytale() {
   )
 }
 
+const { data: categories } = useFetch('/api/categories/')
+
+const {data: peoples} = useFetch('/api/peoples')
 
 </script>
+<style>
+.ce-block__content,
+.ce-toolbar__content {
+  max-width: 85%;
+}
+.codex-editor__redactor {
+  padding-bottom: 100px !important;
+  padding-top: 20px !important;
+}
+</style>
