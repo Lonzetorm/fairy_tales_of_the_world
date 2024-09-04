@@ -17,7 +17,8 @@
                 id="people"
                 v-model="people"
         >
-          <option v-for="(people) in peoples">
+          <option disabled selected value="">Выберите народ</option>
+          <option v-for="(people) in peoples" :value="people.code">
             {{ people.name }}
           </option>
         </select>
@@ -27,7 +28,8 @@
           Категория
         </label>
         <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500" id="category" v-model="category">
-          <option v-for="(category) in categories">
+          <option disabled selected value="">Выберите категорию</option>
+          <option v-for="(category) in categories" :value="category.code">
             {{ category.name }}
           </option>
         </select>
