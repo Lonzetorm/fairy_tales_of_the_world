@@ -11,6 +11,13 @@
               @click="store.modalAuthCall = true"
               v-if="useState('user').value === undefined"
           />
+          <NuxtLink
+              to="/account"
+              class="mr-4 my-auto cursor-pointer"
+              v-if="useState('user').value !== undefined"
+          >
+            <UserIcon/>
+          </NuxtLink>
           <LogoutIcon
               class="mr-4 my-auto cursor-pointer"
               @click="userLogout()"
