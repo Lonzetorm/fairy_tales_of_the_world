@@ -16,7 +16,7 @@
         </label>
         <textarea rows="4"
                   class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-                  id="comment" placeholder="Введите Ваш комментарий"></textarea>
+                  id="comment" placeholder="Введите Ваш комментарий" v-model="text"/>
       </div>
       <div class="flex justify-end">
         <button
@@ -34,6 +34,8 @@
 <script setup lang="ts">
 const route = useRoute()
 
+const text = ref('');
+
 function addComment() {
   $fetch(
       '/api/comments/commentSet', {
@@ -41,7 +43,7 @@ function addComment() {
         body: {
           taleId: route.params.id,
           userName: 'me',
-          text: 'meeee'
+          text: text.value
         }
       }
   )
