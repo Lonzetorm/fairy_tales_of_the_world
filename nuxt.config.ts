@@ -7,7 +7,13 @@ export default defineNuxtConfig({
     }
   },
   css: ['~/assets/css/main.css'],
-  modules: ['@nuxtjs/tailwindcss', '@pinia/nuxt', "nuxt-tiptap-editor", 'nuxt-file-storage', "formidable"],
+  modules: [
+    '@nuxtjs/tailwindcss',
+    '@pinia/nuxt',
+    "nuxt-tiptap-editor",
+    'nuxt-file-storage',
+    "formidable"
+  ],
   tiptap: {
     prefix: 'Tiptap',
   },

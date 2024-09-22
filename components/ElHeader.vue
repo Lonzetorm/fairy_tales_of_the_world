@@ -11,13 +11,19 @@
               @click="store.modalAuthCall = true"
               v-if="useState('user').value === undefined"
           />
+          <NuxtLink
+              to="/account"
+              class="mr-4 my-auto cursor-pointer"
+              v-if="useState('user').value !== undefined"
+          >
+            <UserIcon/>
+          </NuxtLink>
           <LogoutIcon
               class="mr-4 my-auto cursor-pointer"
               @click="userLogout()"
               v-if="useState('user').value !== undefined"
           />
-          <Search class="mr-4 hidden md:block"/>
-          <SearchIcon class="mr-4 my-auto md:hidden"/>
+          <SearchIcon @click="store.modalSearch = true" class="mr-4 my-auto cursor-pointer"/>
         </div>
       </div>
     </header>

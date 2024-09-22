@@ -13,7 +13,8 @@
             </div>
           </div>
           <ElFooter/>
-          <ModalAuth v-if="store.modalAuthCall" />
+          <ModalSearch v-if="store.modalSearch"/>
+          <ModalAuth v-if="store.modalAuthCall"/>
           <ModalRegister v-if="store.modalRegisterCall"/>
         </body>
     </div>

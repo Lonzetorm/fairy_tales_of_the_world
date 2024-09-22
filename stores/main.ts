@@ -5,6 +5,7 @@ export const useMainStore = defineStore('main', {
         project: {
             title: 'Народные сказки',
         },
+        modalSearch: false,
         modalAuthLogin: true,
         modalAuthCall: false,
         modalRegisterCall: false,

@@ -12,14 +12,6 @@
         </NuxtLink>
       </li>
     </ul>
-    <div class="rounded-lg bg-green-300 w-100 py-3 px-3 border-solid border-2 border-green-500 hover:border-white hover:cursor-pointer hover:text-white rounded">
-      <NuxtLink :to="'/add_fairytale/'" class="flex justify-between">
-        <p class="mr-4">
-          Добавить сказку
-        </p>
-        <PlusIcon/>
-      </NuxtLink>
-    </div>
   </div>
 </template>
 
