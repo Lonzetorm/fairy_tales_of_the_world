@@ -23,8 +23,7 @@
               @click="userLogout()"
               v-if="useState('user').value !== undefined"
           />
-          <Search class="mr-4 hidden md:block"/>
-          <SearchIcon class="mr-4 my-auto md:hidden"/>
+          <SearchIcon @click="store.modalSearch = true" class="mr-4 my-auto cursor-pointer"/>
         </div>
       </div>
     </header>
