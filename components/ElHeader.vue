@@ -20,7 +20,7 @@
           </NuxtLink>
           <LogoutIcon
               class="mr-4 my-auto cursor-pointer"
-              @click="userLogout()"
+              @click="logout"
               v-if="useState('user').value !== undefined"
           />
           <SearchIcon @click="store.modalSearch = true" class="mr-4 my-auto cursor-pointer"/>
@@ -31,10 +31,12 @@
 
 <script setup lang="ts">
 import {useState} from "nuxt/app";
-import { userLogout } from '~/composables/useAuth'
+import { userLogout, useLoggedIn } from '~/composables/useAuth'
 const store = useMainStore()
+const logout = userLogout
 
 //todo: Заменить проверку залогинен ли на использование isLoggedIn
-// const isLoggedIn = await useLoggedIn()
+const isLoggedIn = await useLoggedIn()
+console.log('isLoggedIn: ', isLoggedIn)
 
 </script>

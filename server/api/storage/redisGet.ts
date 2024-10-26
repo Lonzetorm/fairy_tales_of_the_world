@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
         console.log('Retrieved item from storage:', item);
 
 
-        return { item };
+        return item;
     } catch (error) {
         console.error('Error handling storage:', error);
         throw error;
