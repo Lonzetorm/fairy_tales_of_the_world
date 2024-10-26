@@ -5,7 +5,7 @@ import useErrorMapper from "./useErrorMapper";
 
 export const useAuthCookie = () => useCookie('auth_token')
 
-export async function useUser(): Promise<IUser | null> {
+export async function useUser() {
   const authCookie = useAuthCookie().value
   const user = useState<IUser | null>('user')
 
@@ -25,12 +25,13 @@ export async function useUser(): Promise<IUser | null> {
 
 export async function useLoggedIn() {
   const user = await useUser()
+  console.log('user: ', user)
 
   if (!user) {
     return false
   }
 
-  if (user?.id == null) {
+  if (user?.item?.userId == null) {
     return false
   }
 
@@ -38,8 +39,7 @@ export async function useLoggedIn() {
 }
 
 export async function userLogout() {
-  // await useFetch('/api/auth/logout')
-  //todo: Переделать проставление null на undefined
+  await useFetch('/api/auth/logout')
   useState('user').value = undefined
   await useRouter().push('/')
 }
