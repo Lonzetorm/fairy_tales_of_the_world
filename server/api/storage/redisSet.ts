@@ -14,7 +14,7 @@ export default defineEventHandler(async (event) => {
                 userAuthToken: req.authToken
             }
         ));
-        console.log('Value set successfully');
+        // console.log('Value set successfully');
     } catch (error) {
         console.error('Error handling storage:', error);
         throw error;
