@@ -12,7 +12,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     "nuxt-tiptap-editor",
     'nuxt-file-storage',
-    "formidable"
   ],
   tiptap: {
     prefix: 'Tiptap',

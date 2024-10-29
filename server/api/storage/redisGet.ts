@@ -8,11 +8,10 @@ export default defineEventHandler(async (event) => {
     }
 
     try {
-        const item = await storage.getItem(req.authToken);
-        console.log('Retrieved item from storage:', item);
+        // const item = await storage.getItem(req.authToken);
+        // console.log('Retrieved item from storage:', item);
 
-
-        return item;
+        return await storage.getItem(req.authToken);
     } catch (error) {
         console.error('Error handling storage:', error);
         throw error;

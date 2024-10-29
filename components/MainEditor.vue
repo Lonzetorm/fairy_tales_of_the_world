@@ -18,8 +18,8 @@ const editor = new EditorJS({
       class: ImageTool,
       config: {
         endpoints: {
-          byFile: 'http://localhost:3002/api/uploadFile', // Your backend file uploader endpoint
-          byUrl: 'http://localhost:3002/api/uploadFile', // Your endpoint that provides uploading by Url
+          byFile: 'http://localhost:3001/api/uploadFile', // Your backend file uploader endpoint
+          byUrl: 'http://localhost:3001/api/uploadFile', // Your endpoint that provides uploading by Url
         },
         captionPlaceholder: 'Название картинки'
       }
