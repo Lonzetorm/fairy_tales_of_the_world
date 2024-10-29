@@ -37,6 +37,5 @@ const logout = userLogout
 
 //todo: Заменить проверку залогинен ли на использование isLoggedIn
 const isLoggedIn = await useLoggedIn()
-console.log('isLoggedIn: ', isLoggedIn)
 
 </script>
