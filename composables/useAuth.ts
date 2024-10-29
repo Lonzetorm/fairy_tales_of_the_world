@@ -25,13 +25,12 @@ export async function useUser() {
 
 export async function useLoggedIn() {
   const user = await useUser()
-  console.log('user: ', user)
 
   if (!user) {
     return false
   }
 
-  if (user?.item?.userId == null) {
+  if (user.userId == null) {
     return false
   }
 

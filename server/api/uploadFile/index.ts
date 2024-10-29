@@ -1,4 +1,4 @@
-import formidable from "formidable";
+// import formidable from "formidable";
 import fs from "fs";
 import path from "path";
 
@@ -7,7 +7,8 @@ export default defineEventHandler(async (event) => {
     let oldPath = "";
     let newPath = "";
 
-    const form = formidable({ multiples: true });
+    // const form = formidable({ multiples: true });
+    const form = {};
     const data = await new Promise((resolve, reject) => {
         form.parse(event.node.req, (err, fields, files) => {
             if (err) {
