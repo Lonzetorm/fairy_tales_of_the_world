@@ -74,12 +74,12 @@ const text: Ref<string> = ref('');
 const category: Ref<string> = ref('');
 const people: Ref<string> = ref('');
 
-function addFairytale() {
+async function addFairytale() {
   if (store.taleUploadText !== '') {
     text.value = store.taleUploadText;
   }
 
-  $fetch(
+  await $fetch(
       '/api/tales/set', {
         method: 'POST',
         body: {
@@ -91,6 +91,14 @@ function addFairytale() {
         }
       }
   )
+
+  //todo Переделать на что-то более автоматическое
+  //todo Доделать обнуление текста сказки
+  name.value = '';
+  description.value  = '';
+  text.value = '';
+  category.value = '';
+  people.value = '';
 }
 
 const { data: categories } = useFetch('/api/categories/')

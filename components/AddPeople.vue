@@ -46,8 +46,8 @@ const name: Ref<string> = ref('');
 const description: Ref<string> = ref('');
 const code: Ref<string> = ref('');
 
-function addPeople() {
-  $fetch(
+async function addPeople() {
+  await $fetch(
       '/api/peoples/peopleSet', {
         method: 'POST',
         body: {
@@ -58,5 +58,10 @@ function addPeople() {
       }
   )
 
+  //todo Переделать на что-то более автоматическое и учитвать изменения в peoples
+  //todo (если добавление сказок и народов на одной странице остаётся (да и не только в этом случае, видимо))
+  name.value = '';
+  description.value = '';
+  code.value = '';
 }
 </script>
