@@ -9,4 +9,6 @@
   definePageMeta({
     layout: "without-sidebar",
   });
+
+  //todo Продумать эту страницу
 </script>
