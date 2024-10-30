@@ -7,7 +7,6 @@
       <p v-html="tale.text"/>
     </div>
     <Comments/>
-    <AddComment/>
   </div>
 </template>
 
