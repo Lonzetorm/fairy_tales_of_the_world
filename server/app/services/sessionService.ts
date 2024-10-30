@@ -5,7 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 
 export async function makeSession(user: any, event: H3Event) {
     const authToken = uuidv4().replaceAll('-', '')
-    const session = await createSession({ authToken, userId: user._id })
+    const session = await createSession({ authToken, userId: user._id, userName: user.name })
     const userId = session.userId
 
     if (userId) {
