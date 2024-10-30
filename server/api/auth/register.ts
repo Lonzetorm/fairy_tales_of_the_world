@@ -23,7 +23,6 @@ export default eventHandler(async (event: H3Event) => {
     const encryptedPassword: string = await bcrypt.hash(req.password, 10)
 
     const user = await createUser(data.name, data.email, encryptedPassword)
-    console.log('user: ', user)
 
     return await makeSession(user, event)
   } catch (error: any) {

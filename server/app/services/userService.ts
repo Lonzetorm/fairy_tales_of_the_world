@@ -40,12 +40,6 @@ export async function authCheck(event: H3Event): Promise<boolean> {
 
     const user  = await getUserBySessionToken(authToken)
 
-    if(user?.id) {
-        return true
-    }
-
-    return false
-
-
+    return !!user?.id;
 }
 

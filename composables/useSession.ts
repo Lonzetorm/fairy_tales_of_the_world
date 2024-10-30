@@ -3,6 +3,7 @@ import useErrorMapper from "~/composables/useErrorMapper";
 export async function makeNewSession(
     userId: string|number|undefined,
     authToken: string,
+    userName: string|undefined
 ) {
 
     try {
@@ -10,7 +11,8 @@ export async function makeNewSession(
             method: 'POST',
             body:  {
                 userId: userId,
-                authToken: authToken
+                authToken: authToken,
+                userName: userName
             }
         })
 

@@ -11,7 +11,8 @@ export default defineEventHandler(async (event) => {
         await storage.setItem(req.authToken, JSON.stringify(
             {
                 userId: req.userId,
-                userAuthToken: req.authToken
+                userAuthToken: req.authToken,
+                name: req.userName
             }
         ));
         // console.log('Value set successfully');

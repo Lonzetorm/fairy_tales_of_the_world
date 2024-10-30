@@ -2,13 +2,13 @@
   <div class="border border-gray-200 p-4 rounded-lg mt-10">
     <h2 class="font-medium mb-2">Оставить комментарий</h2>
     <form>
-      <div class="mb-4">
+      <div v-if="useState('user').value === undefined" class="mb-4">
         <label class="block text-gray-700 mb-2" for="name">
           Имя
         </label>
         <input
             class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="name" type="text" placeholder="Введите Ваше имя">
+            id="name" type="text" placeholder="Введите Ваше имя" v-model="name">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="comment">
@@ -32,9 +32,16 @@
 </template>
 
 <script setup lang="ts">
-const route = useRoute()
+import {useState} from "nuxt/app";
 
+const route = useRoute()
 const text = ref('');
+const name = ref('')
+
+const user = useState('user')
+if (user?._value?.name) {
+  name.value = user?._value?.name;
+}
 
 function addComment() {
   $fetch(
@@ -42,7 +49,7 @@ function addComment() {
         method: 'POST',
         body: {
           taleId: route.params.id,
-          userName: 'me',
+          userName: name.value,
           text: text.value
         }
       }

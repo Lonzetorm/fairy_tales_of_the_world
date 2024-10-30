@@ -1,4 +1,5 @@
 export interface ISession {
     authToken?: string;
-    userId?: number
+    userId?: number;
+    userName?: string
 }

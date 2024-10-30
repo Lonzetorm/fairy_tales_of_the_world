@@ -4,7 +4,6 @@ export default defineEventHandler(async(event) => {
     if (event.node.req.method === 'POST') {
 
         let query = await readBody(event)
-        console.log('taleEvent: ', query)
 
         return Tales.create({
             name: query.name,
