@@ -19,6 +19,14 @@
             id="nameEnglish" type="text" placeholder="Введите название народа на английском" v-model="code">
       </div>
       <div class="mb-4">
+        <label class="block text-gray-700 mb-2" for="nameEnglish">
+          Название картинки
+        </label>
+        <input
+            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+            id="image" type="text" placeholder="Введите название картинки на английском" v-model="image">
+      </div>
+      <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="description">
           Описание
         </label>
@@ -45,6 +53,7 @@ import type { Ref } from "vue"
 const name: Ref<string> = ref('');
 const description: Ref<string> = ref('');
 const code: Ref<string> = ref('');
+const image: Ref<string> = ref('');
 
 async function addPeople() {
   await $fetch(
@@ -53,7 +62,8 @@ async function addPeople() {
         body: {
           name: name.value,
           description: description.value,
-          code: code.value
+          code: code.value,
+          image: image.value
         }
       }
   )
@@ -63,5 +73,8 @@ async function addPeople() {
   name.value = '';
   description.value = '';
   code.value = '';
+  image.value = '';
+
+  //todo с названием картинки это временная мера. Заменить на подрузку файла
 }
 </script>

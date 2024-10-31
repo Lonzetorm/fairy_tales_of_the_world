@@ -7,7 +7,7 @@
       <p v-html="peopleDescription.description"/>
     </div>
     <div class="rounded-lg w-1/3">
-      <img src="/images/tanuki.png" class="rounded-lg"/>
+      <img :src="'/images/peoples/detail/' + peopleName + '/' + peopleDescription.image" class="rounded-lg"/>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
@@ -31,10 +31,11 @@
 import {useFetch} from "nuxt/app";
 
 const route = useRoute()
+const peopleName = route.params.id;
 const {data: tales} = useFetch(
     '/api/tales/', {
       query: {
-        people_id: route.params.id
+        people_id: peopleName
       }
     }
 )

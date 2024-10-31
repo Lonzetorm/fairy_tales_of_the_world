@@ -8,7 +8,8 @@ export default defineEventHandler(async (event: H3Event) => {
         return Peoples.create({
             name: query.name,
             description: query.description,
-            code: query.code
+            code: query.code,
+            image: query.image
         })
     }
 })

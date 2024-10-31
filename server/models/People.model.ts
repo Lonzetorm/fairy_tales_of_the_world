@@ -10,6 +10,9 @@ const PeoplesSchema = new Schema({
     code: {
         type: String
     },
+    image: {
+        type: String
+    },
 },
     {
         timestamps: true

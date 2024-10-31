@@ -14,8 +14,17 @@
 import {useFetch} from "nuxt/app";
 
 const route = useRoute()
-const {data: tale} = await useFetch(
+const {data: tale, error} = await useFetch(
     '/api/tales/' + route.params.id
 )
+if (error.value) {
+  console.log(error.value)
+    throw createError({statusCode: 404, statusMessage: "Page not found.", fatal: true})
+  }
 
 </script>
+<style scoped>
+img {
+  max-height: 600px !important;
+}
+</style>
