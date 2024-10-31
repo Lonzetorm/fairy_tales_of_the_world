@@ -1,7 +1,8 @@
 <template>
     <header class="border-b bg-green-500">
       <div class="flex items-center justify-between h-12 text-white max-w-screen-xl mx-auto">
-        <MenuIcon class="md:hidden ml-4"/>
+        <MenuIcon @click="store.mobileMenuShown = true" class="md:hidden ml-4"/>
+        <MobileMenu v-if="store.mobileMenuShown"/>
         <NuxtLink class="dark:text-purple-500 font-bold text-logo-main ml-4" to="/">
           СНМ
         </NuxtLink>
