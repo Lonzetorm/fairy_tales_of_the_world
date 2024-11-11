@@ -5,16 +5,23 @@
         Комментарии
       </h1>
       <div class="border border-solid border-gray-200 rounded-lg p-4 mb-4" v-for="comment in comments">
-        <div class="flex">
+        <div class="flex flex justify-between">
           <div>
-            <LoginIcon class="mr-4 my-auto cursor-pointer"/>
+            <div class="flex">
+              <div>
+                <LoginIcon class="mr-4 my-auto cursor-pointer"/>
+              </div>
+              <div>
+                {{ comment.userName }}
+              </div>
+            </div>
+            <div class="mt-2">
+              {{ comment.text }}
+            </div>
           </div>
-          <div>
-            {{ comment.userName }}
+          <div v-if="isAdminUser" @click="deleteComment(comment._id)" class="hover:cursor-pointer">
+            Удалить
           </div>
-        </div>
-        <div class="mt-2">
-          {{ comment.text }}
         </div>
       </div>
     </div>
@@ -57,6 +64,19 @@ import {useFetch, useState} from "nuxt/app";
 const route = useRoute();
 const text = ref('');
 const name = ref('');
+
+const isAdminUser = true
+const deleteComment = (id: number) => {
+  $fetch(
+      '/api/comments/commentDelete', {
+        method: 'POST',
+        body: {
+          commentId: id
+        }
+      }
+  )
+  refresh();
+}
 
 const { data: comments, refresh } = useFetch(
     '/api/comments/', {
