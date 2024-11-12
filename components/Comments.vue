@@ -19,13 +19,13 @@
               {{ comment.text }}
             </div>
           </div>
-          <div v-if="isAdminUser" @click="deleteComment(comment._id)" class="hover:cursor-pointer">
-            Удалить
-          </div>
+<!--          <CloseButton v-if="isAdminUser" @click="deleteComment(comment._id)" class="hover:cursor-pointer text-red-600"/>-->
+          <CloseButton v-if="isAdminUser" @click="store.modalDeleteConfirm = true" class="hover:cursor-pointer text-red-600"/>
         </div>
       </div>
     </div>
   </div>
+  <ModalDeleteConfirm v-if="store.modalDeleteConfirm"/>
   <div class="border border-gray-200 p-4 rounded-lg mt-10">
     <h2 class="font-medium mb-2">Оставить комментарий</h2>
     <form>
@@ -62,6 +62,7 @@
 import {useFetch, useState} from "nuxt/app";
 
 const route = useRoute();
+const store = useMainStore();
 const text = ref('');
 const name = ref('');
 

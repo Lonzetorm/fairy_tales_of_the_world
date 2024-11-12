@@ -9,6 +9,7 @@ export const useMainStore = defineStore('main', {
         modalAuthLogin: true,
         modalAuthCall: false,
         modalRegisterCall: false,
+        modalDeleteConfirm: false,
         mobileMenuShown: false,
         taleUploadText: ''
     })
