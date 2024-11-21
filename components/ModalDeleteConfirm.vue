@@ -12,7 +12,7 @@
           </div>
           <!-- Modal body -->
           <div class="flex p-4 md:p-5 justify-evenly text-white">
-            <button class="bg-green-600 w-20 rounded-lg">
+            <button @click="confirm" class="bg-green-600 w-20 rounded-lg">
               Да
             </button>
             <button @click="close" class="bg-red-600 w-20 rounded-lg">
@@ -31,6 +31,11 @@ import {useMainStore} from "../stores/main.ts";
 const store = useMainStore()
 const close = () => {
   store.modalDeleteConfirm = false
+}
+
+const confirm = () => {
+  store.modalDeleteAnswer.toDelete = true
+  close()
 }
 
 </script>
