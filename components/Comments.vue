@@ -19,8 +19,7 @@
               {{ comment.text }}
             </div>
           </div>
-<!--          <CloseButton v-if="isAdminUser" @click="deleteComment(comment._id)" class="hover:cursor-pointer text-red-600"/>-->
-          <CloseButton v-if="isAdminUser" @click="store.modalDeleteConfirm = true" class="hover:cursor-pointer text-red-600"/>
+          <CloseButton v-if="isAdminUser" @click="prepareDelete(comment._id)" class="hover:cursor-pointer text-red-600"/>
         </div>
       </div>
     </div>
@@ -79,6 +78,13 @@ const deleteComment = (id: number) => {
   refresh();
 }
 
+watch(store.modalDeleteAnswer, (newStore: any) => {
+  if (newStore.toDelete) {
+    deleteComment(newStore.id)
+    store.modalDeleteAnswer.toDelete = false
+  }
+})
+
 const { data: comments, refresh } = useFetch(
     '/api/comments/', {
       query: {
@@ -111,5 +117,10 @@ function onAddComment() {
   if (name.value) {
     name.value = ''
   }
+}
+
+const prepareDelete = (id: number) => {
+  store.modalDeleteConfirm = true
+  store.modalDeleteAnswer.id = id
 }
 </script>

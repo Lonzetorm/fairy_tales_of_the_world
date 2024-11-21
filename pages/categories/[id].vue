@@ -13,15 +13,14 @@
               {{ tale.description }}
             </p>
           </NuxtLink>
-<!--          <CloseButton class="text-red-600" @click="deleteTale(tale._id)"/>-->
-          <CloseButton class="text-red-600" @click="store.modalDeleteConfirm = true"/>
+          <CloseButton class="text-red-600" @click="prepareDelete(tale._id)"/>
         </div>
       </div>
     </div>
   <ModalDeleteConfirm v-if="store.modalDeleteConfirm"/>
-<!--   <div class="grid-cols-1 text-center" v-else>-->
-<!--     На данный момент сказок не загружено-->
-<!--   </div>-->
+   <div class="grid-cols-1 text-center" v-if="tales?.length === 0">
+     На данный момент сказок не загружено
+   </div>
 </template>
 
 <script lang="ts" setup>
@@ -37,6 +36,13 @@ const {data: tales, refresh} = useFetch(
     }
 )
 
+watch(store.modalDeleteAnswer, (newStore: any) => {
+  if (newStore.toDelete) {
+    deleteTale(newStore.id)
+    store.modalDeleteAnswer.toDelete = false
+  }
+})
+
 const deleteTale = (taleId: string) => {
   $fetch(
       '/api/tales/delete', {
@@ -47,6 +53,11 @@ const deleteTale = (taleId: string) => {
       }
   )
   refresh();
+}
+
+const prepareDelete = (id: number) => {
+  store.modalDeleteConfirm = true
+  store.modalDeleteAnswer.id = id
 }
 
 </script>

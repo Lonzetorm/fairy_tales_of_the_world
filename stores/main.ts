@@ -10,6 +10,10 @@ export const useMainStore = defineStore('main', {
         modalAuthCall: false,
         modalRegisterCall: false,
         modalDeleteConfirm: false,
+        modalDeleteAnswer: {
+            toDelete: false,
+            id: 0
+        },
         mobileMenuShown: false,
         taleUploadText: ''
     })
