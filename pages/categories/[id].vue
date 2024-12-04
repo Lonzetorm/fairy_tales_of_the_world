@@ -13,7 +13,7 @@
               {{ tale.description }}
             </p>
           </NuxtLink>
-          <CloseButton class="text-red-600" @click="prepareDelete(tale._id)"/>
+          <CloseButton v-if="userRights" class="text-red-600" @click="prepareDelete(tale._id)"/>
         </div>
       </div>
     </div>
@@ -24,8 +24,9 @@
 </template>
 
 <script lang="ts" setup>
-import {useFetch} from "nuxt/app";
+import {useFetch, useState} from "nuxt/app";
 
+const userRights = useState('user')?.value?.rights
 const store = useMainStore();
 const route = useRoute()
 const {data: tales, refresh} = useFetch(
