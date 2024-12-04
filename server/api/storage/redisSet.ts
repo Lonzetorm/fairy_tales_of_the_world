@@ -12,7 +12,8 @@ export default defineEventHandler(async (event) => {
             {
                 userId: req.userId,
                 userAuthToken: req.authToken,
-                name: req.userName
+                name: req.userName,
+                rights: req.userRights
             }
         ));
         // console.log('Value set successfully');

@@ -31,38 +31,3 @@ export async function getUserById(id: number) {
   // })
 }
 
-export async function getSubscriptionById(stripeId: string) {
-  // return await prisma.subscription.findFirst({
-  //   where: {
-  //     stripeId: stripeId,
-  //   }
-  // })
-}
-
-export async function createOrUpdateSubscription(data: ISubscription) {
-  // return await prisma.subscription.upsert({
-  //   where: {
-  //     stripeId: data.stripeId
-  //   },
-  //   create: {
-  //     userId: data.userId,
-  //     stripeId: data.stripeId,
-  //     stripeStatus: data.stripeStatus,
-  //     stripePriceId: data.stripePriceId,
-  //     quantity: data.quantity,
-  //     trialEndsAt: data.trialEndsAt,
-  //     endsAt: data.endsAt,
-  //     lastEventDate: data.lastEventDate,
-  //     startDate: data.startDate
-  //   },
-  //   update: {
-  //     stripeStatus: data.stripeStatus,
-  //     stripePriceId: data.stripePriceId,
-  //     quantity: data.quantity,
-  //     trialEndsAt: data.trialEndsAt,
-  //     endsAt: data.endsAt,
-  //     lastEventDate: data.lastEventDate,
-  //     startDate: data.startDate
-  //   }
-  // })
-}

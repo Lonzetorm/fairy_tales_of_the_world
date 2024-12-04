@@ -7,12 +7,13 @@ export async function createSession(sessionData: ISession): Promise<ISession> {
     throw Error('missing auth token for session')
   }
 
-  await makeNewSession(sessionData.userId, sessionData.authToken, sessionData.userName)
+  await makeNewSession(sessionData.userId, sessionData.authToken, sessionData.userName, sessionData.userRights)
 
   return  {
     userId: sessionData.userId,
     authToken: sessionData.authToken,
-    userName: sessionData.userName
+    userName: sessionData.userName,
+    userRights: sessionData.userRights
   }
 }
 
