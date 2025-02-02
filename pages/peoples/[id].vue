@@ -7,7 +7,7 @@
       <p v-html="peopleDescription.description"/>
     </div>
     <div class="rounded-lg w-1/3">
-      <img :src="'/images/peoples/detail/' + peopleName + '/' + peopleDescription.image" class="rounded-lg"/>
+      <img :src="'/uploads/peoples/' + peopleDescription.image" class="rounded-lg"/>
     </div>
   </div>
   <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
