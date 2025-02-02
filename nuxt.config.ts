@@ -13,6 +13,9 @@ export default defineNuxtConfig({
     "nuxt-tiptap-editor",
     'nuxt-file-storage',
   ],
+  fileStorage: {
+    mount: '/project/Mine/fairy_tales/public/uploads',
+  },
   tiptap: {
     prefix: 'Tiptap',
   },

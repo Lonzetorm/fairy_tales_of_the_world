@@ -19,12 +19,10 @@
             id="nameEnglish" type="text" placeholder="Введите название народа на английском" v-model="code">
       </div>
       <div class="mb-4">
-        <label class="block text-gray-700 mb-2" for="nameEnglish">
-          Название картинки
+        <label class="block text-gray-700 mb-2">
+          Добавьте картинку народа
         </label>
-        <input
-            class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="image" type="text" placeholder="Введите название картинки на английском" v-model="image">
+        <input type="file" @input="handleFileInput"/>
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="description">
@@ -54,8 +52,18 @@ const name: Ref<string> = ref('');
 const description: Ref<string> = ref('');
 const code: Ref<string> = ref('');
 const image: Ref<string> = ref('');
+const { handleFileInput, files } = useFileStorage()
+const submit = async () => {
+  await $fetch('/api/files', {
+    method: 'POST',
+    body: {
+      files: files.value
+    }
+  })
+}
 
 async function addPeople() {
+  await submit()
   await $fetch(
       '/api/peoples/peopleSet', {
         method: 'POST',
@@ -63,7 +71,7 @@ async function addPeople() {
           name: name.value,
           description: description.value,
           code: code.value,
-          image: image.value
+          image: files.value[0].name
         }
       }
   )
@@ -74,7 +82,5 @@ async function addPeople() {
   description.value = '';
   code.value = '';
   image.value = '';
-
-  //todo с названием картинки это временная мера. Заменить на подрузку файла
 }
 </script>

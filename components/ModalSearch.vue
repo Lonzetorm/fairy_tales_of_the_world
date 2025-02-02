@@ -21,7 +21,13 @@
             <form class="space-y-4" action="#">
               <div>
                 <label for="text" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Искать</label>
-                <input v-model="text" type="text" name="email" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Что ищем?" required />
+                <div class="flex">
+                  <input v-model="text" type="text" name="email" id="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Что ищем?" required />
+                  <button style="margin-left: -100px; width: 100px;" class="bg-green-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                          type="button">
+                    Найти
+                  </button>
+                </div>
               </div>
             </form>
           </div>
