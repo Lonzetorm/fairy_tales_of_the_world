@@ -30,28 +30,37 @@
                 </div>
               </div>
             </form>
-            <div v-if="isLoading" class="loading">
-              Загрузка...
-            </div>
-            <div v-else-if="results.length === 0 && searchDone" class="no-results">
-              По вашему запросу ничего не найдено
-            </div>
-
-            <div v-else class="results">
-              <div
-                  v-for="(result, index) in results.slice(0, limit)"
-                  :key="index"
-                  class="result"
-              >
-                {{ result.title }}
+            <div class="max-h-96 overflow-y-auto mt-4">
+              <div v-if="isLoading" class="loading">
+                Загрузка...
               </div>
-              <button
-                  v-if="showMore"
-                  class="show-more"
-                  @click="loadMore"
-              >
-                Показать ещё
-              </button>
+              <div v-else-if="results.length === 0 && searchDone" class="no-results">
+                По вашему запросу ничего не найдено
+              </div>
+              <div v-else class="results">
+                <div
+                    v-for="(result, index) in results"
+                    :key="index"
+                    class="pt-4 pb-4 flex"
+                >
+                  <img :src="'/uploads/picture.jpg'" class="mr-4 rounded-md w-20"/>
+                  <div>
+                    <NuxtLink :to="'/tales/67aaf68fc77c87fc01f49fdf'" @click="close">
+                      {{ result.title }}
+                    </NuxtLink>
+                    <p>
+                      Тут будет тестовый текст описания сказки
+                    </p>
+                  </div>
+                </div>
+                <button
+                    v-if="showMore"
+                    class="show-more"
+                    @click="loadMore"
+                >
+                  Показать ещё
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -74,14 +83,20 @@ const isLoading = ref(false)
 const showMore = ref(false)
 const limit = 7
 const searchDone = ref(false)
+const page = ref(0)
 
 // Функция поиска
 async function search() {
   isLoading.value = true
   try {
-    // Имитация запроса к API
-    const response = await fetch('/api/search?q=' + query.value)
-    results.value = await response.json()
+    let requestString = '/api/search?q=' + query.value
+    if (page) {
+      requestString += '&page=' + page.value
+    }
+    const response = await fetch(requestString)
+    results.value.push(...await response.json())
+
+    console.log('results: ', results)
     showMore.value = results.value.length > limit
     searchDone.value = true
   } finally {
@@ -94,8 +109,6 @@ function handleInput(e) {
   query.value = e.target.value
 }
 
-
-
 // Обработка отправки формы
 async function handleSubmit() {
   await search()
@@ -103,7 +116,9 @@ async function handleSubmit() {
 
 // Загрузка дополнительных результатов
 function loadMore() {
-  showMore.value = false
+  page.value++
+  search()
+  // showMore.value = false
 }
 
 </script>
