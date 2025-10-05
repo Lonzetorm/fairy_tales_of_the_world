@@ -10,7 +10,10 @@ export default defineEventHandler(async(event) => {
             description: query.description,
             text: query.text,
             category: query.category,
-            people: query.people
+            people: query.people,
+            author: query.author,
+            image: query.image ? '/uploads/tales/' + query.image : '',
+            popular: query.popular
         })
     }
 });

@@ -1,26 +1,26 @@
 <template>
   <div class="border border-gray-200 p-4 rounded-lg mt-10">
-    <h2 class="font-medium mb-2">Добавить народ</h2>
+    <h2 class="font-medium mb-2">Добавить автора</h2>
     <form>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="name">
-          Название народа
+          Имя и фамилия автора
         </label>
         <input
             class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="name" type="text" placeholder="Введите название народа" v-model="name">
+            id="name" type="text" placeholder="Введите имя и фамилию автора" v-model="name">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2" for="nameEnglish">
-          Название народа на английском
+          Имя и фамилия автора на английском
         </label>
         <input
             class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
-            id="nameEnglish" type="text" placeholder="Введите название народа на английском" v-model="code">
+            id="nameEnglish" type="text" placeholder="Введите имя и фамилию автора на английском" v-model="code">
       </div>
       <div class="mb-4">
         <label class="block text-gray-700 mb-2">
-          Добавьте картинку народа
+          Добавьте изображение автора
         </label>
         <input type="file" @input="handleFileInput"/>
       </div>
@@ -36,7 +36,7 @@
         <button
             class="bg-green-500 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
-            @click="addPeople"
+            @click="addAuthor"
         >
           Добавить
         </button>
@@ -58,15 +58,15 @@ const submit = async () => {
     method: 'POST',
     body: {
       files: files.value,
-      section: 'peoples'
+      section: 'authors'
     }
   })
 }
 
-async function addPeople() {
+async function addAuthor() {
   await submit()
   await $fetch(
-      '/api/peoples/peopleSet', {
+      '/api/authors/authorSet', {
         method: 'POST',
         body: {
           name: name.value,
@@ -77,7 +77,7 @@ async function addPeople() {
       }
   )
 
-  //todo Переделать на что-то более автоматическое и учитвать изменения в peoples
+  //todo Переделать на что-то более автоматическое и учитывать изменения в authors
   //todo (если добавление сказок и народов на одной странице остаётся (да и не только в этом случае, видимо))
   name.value = '';
   description.value = '';

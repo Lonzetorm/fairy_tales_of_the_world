@@ -1,5 +1,5 @@
 export default defineEventHandler(async (event) => {
-    const { files } = await readBody<{ files: File[] }>(event)
+    const { files, section } = await readBody<{ files: File[], section: string }>(event)
 
     const removeExt = ((str) => {
         let lastDotIndex = str.lastIndexOf('.');
@@ -11,7 +11,7 @@ export default defineEventHandler(async (event) => {
         await storeFileLocally(
             file,         // the file object
             removeExt(file.name),            // you can add a name for the file or length of Unique ID that will be automatically generated!
-            '/peoples'  // the folder the file will be stored in
+            '/' + section  // the folder the file will be stored in
         )
     }
 

@@ -20,7 +20,19 @@ const TalesSchema = new Schema({
         people: {
             type: String,
             required: true
-        }
+        },
+        popular: {
+            type: Boolean,
+            default: false
+        },
+        image: {
+            type: String,
+            required: false
+        },
+        author: {
+            type: String,
+            required: false
+        },
     },
     {
         timestamps: true

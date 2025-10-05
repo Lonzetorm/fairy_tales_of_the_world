@@ -4,7 +4,7 @@
         <MenuIcon @click="store.mobileMenuShown = true" class="md:hidden ml-4"/>
         <MobileMenu v-if="store.mobileMenuShown"/>
         <NuxtLink class="dark:text-purple-500 font-bold text-logo-main ml-4" to="/">
-          СНМ
+          Все сказки
         </NuxtLink>
         <div class="flex">
           <LoginIcon
