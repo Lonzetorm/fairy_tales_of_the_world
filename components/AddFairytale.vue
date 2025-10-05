@@ -49,6 +49,25 @@
       </select>
     </div>
     <div class="mb-4">
+      <label class="block text-gray-700 mb-2">
+        Добавьте картинку для обложки
+      </label>
+      <input type="file" @input="handleFileInput"/>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 mb-2">
+        Отображать на главной?
+      </label>
+      <div>
+        <input type="radio" id="male" v-model="popular" :value="true">
+        <label for="male">Да</label>
+      </div>
+      <div>
+        <input type="radio" id="female" v-model="popular" :value="false">
+        <label for="female">Нет</label>
+      </div>
+    </div>
+    <div class="mb-4">
       <label class="block text-gray-700 mb-2" for="description">
         Описание
       </label>
@@ -81,19 +100,35 @@
 import type { Ref } from "vue"
 import {useFetch} from "nuxt/app";
 
+const { handleFileInput, files } = useFileStorage()
 const store = useMainStore()
 const name: Ref<string> = ref('');
 const description: Ref<string> = ref('');
 const text: Ref<string> = ref('');
 const category: Ref<string> = ref('');
+const popular: Ref<boolean> = ref(false);
 const people: Ref<string> = ref('');
 const author: Ref<string> = ref('');
+const image: Ref<string> = ref('');
+
+const submit = async () => {
+  await $fetch('/api/files', {
+    method: 'POST',
+    body: {
+      files: files.value,
+      section: 'tales'
+    }
+  })
+}
 
 async function addFairytale() {
   if (store.taleUploadText !== '') {
     text.value = store.taleUploadText;
   }
 
+  await submit()
+  //todo Сделать так, чтоб не передавать поле image, если оно пустое
+  console.log('popular: ', popular.value)
   await $fetch(
       '/api/tales/set', {
         method: 'POST',
@@ -104,6 +139,8 @@ async function addFairytale() {
           category: category.value,
           people: people.value,
           author: author.value,
+          popular: popular.value,
+          image: files?.value[0]?.name ?? ''
         }
       }
   )
@@ -115,6 +152,9 @@ async function addFairytale() {
   text.value = '';
   category.value = '';
   people.value = '';
+  author.value = '';
+  image.value = '';
+  popular.value = false;
 }
 
 const { data: categories } = useFetch('/api/categories/')

@@ -11,7 +11,9 @@ export default defineEventHandler(async(event) => {
             text: query.text,
             category: query.category,
             people: query.people,
-            author: query.author
+            author: query.author,
+            image: query.image ? '/uploads/tales/' + query.image : '',
+            popular: query.popular
         })
     }
 });

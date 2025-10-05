@@ -13,6 +13,9 @@ export default defineEventHandler((event) => {
         if (query.author_id) {
             filter = {author: query.author_id}
         }
+        if (query.popular) {
+            filter = {popular: query.popular}
+        }
 
         return Tales.find(filter)
     }

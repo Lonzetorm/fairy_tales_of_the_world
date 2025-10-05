@@ -1,21 +1,7 @@
 <template>
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6" >
-      <div
-          v-for="(tale, index) in tales" :key="index"
-          class="border border-solid border-gray-200 rounded-lg p-4 hover:border-green-400"
-      >
-        <div class="flex">
-          <NuxtLink :to="'/tales/' + tale._id">
-            <h2 class="font-bold">
-              {{ tale.name }}
-            </h2>
-            <p>
-              {{ tale.description }}
-            </p>
-          </NuxtLink>
-          <CloseButton v-if="userRights" class="text-red-600" @click="prepareDelete(tale._id)"/>
-        </div>
-      </div>
+      <block-tale v-for="(tale, index) in tales" :key="index" :tale="tale"/>
+<!--      <CloseButton v-if="userRights" class="text-red-600" @click="prepareDelete(tale._id)"/>-->
     </div>
   <ModalDeleteConfirm v-if="store.modalDeleteConfirm"/>
    <div class="grid-cols-1 text-center" v-if="tales?.length === 0">
