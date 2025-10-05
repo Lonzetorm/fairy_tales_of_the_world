@@ -20,7 +20,11 @@ const TalesSchema = new Schema({
         people: {
             type: String,
             required: true
-        }
+        },
+        author: {
+            type: String,
+            required: false
+        },
     },
     {
         timestamps: true

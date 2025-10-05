@@ -25,6 +25,20 @@
     </div>
     <div class="mb-4">
       <label class="block text-gray-700 mb-2" for="name">
+        Автор
+      </label>
+      <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500"
+              id="author"
+              v-model="author"
+      >
+        <option disabled selected value="">Выберите автора</option>
+        <option v-for="(author) in authors" :value="author.code">
+          {{ author.name }}
+        </option>
+      </select>
+    </div>
+    <div class="mb-4">
+      <label class="block text-gray-700 mb-2" for="name">
         Категория
       </label>
       <select class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:border-gray-500" id="category" v-model="category">
@@ -73,6 +87,7 @@ const description: Ref<string> = ref('');
 const text: Ref<string> = ref('');
 const category: Ref<string> = ref('');
 const people: Ref<string> = ref('');
+const author: Ref<string> = ref('');
 
 async function addFairytale() {
   if (store.taleUploadText !== '') {
@@ -87,7 +102,8 @@ async function addFairytale() {
           description: description.value,
           text: text.value,
           category: category.value,
-          people: people.value
+          people: people.value,
+          author: author.value,
         }
       }
   )
@@ -102,8 +118,8 @@ async function addFairytale() {
 }
 
 const { data: categories } = useFetch('/api/categories/')
-
 const {data: peoples} = useFetch('/api/peoples')
+const {data: authors} = useFetch('/api/authors')
 
 </script>
 <style>

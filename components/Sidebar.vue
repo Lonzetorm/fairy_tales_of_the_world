@@ -1,8 +1,11 @@
 <template>
   <div class="w-100">
-    <div class="rounded-lg mb-4 bg-green-500 w-100 border-solid border-2 border-green-500 hover:border-white hover:cursor-pointer hover:text-white rounded">
-      <NuxtLink :to="'/peoples/'" class="w-100 block py-3 px-3">
+    <div class="rounded-lg mb-4 bg-green-500">
+      <NuxtLink :to="'/peoples/'" class="rounded-lg w-100 block py-3 px-3 border-solid border-2 border-green-500 hover:border-white hover:cursor-pointer hover:text-white rounded">
         По народам
+      </NuxtLink>
+      <NuxtLink :to="'/authors/'" class="rounded-lg w-100 block py-3 px-3 border-solid border-2 border-green-500 hover:border-white hover:cursor-pointer hover:text-white rounded">
+        Авторские сказки
       </NuxtLink>
     </div>
     <ul class="rounded-lg bg-green-500 mb-4">
