@@ -3,7 +3,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   app: {
     head: {
-      title: 'Народные сказки',
+      title: 'Все сказки',
     }
   },
   css: ['~/assets/css/main.css'],

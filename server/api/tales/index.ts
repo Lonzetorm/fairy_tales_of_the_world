@@ -16,6 +16,9 @@ export default defineEventHandler((event) => {
         if (query.popular) {
             filter = {popular: query.popular}
         }
+        if (query.limit) {
+            return Tales.find().sort({ $natural: -1 }).limit(query.limit)
+        }
 
         return Tales.find(filter)
     }

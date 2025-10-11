@@ -15,6 +15,7 @@ export const useMainStore = defineStore('main', {
             id: 0
         },
         mobileMenuShown: false,
+        menuShown: false,
         taleUploadText: ''
     })
 })

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div id="authentication-modal" tabindex="-1" aria-hidden="true" class="bg-black bg-opacity-75 overflow-y-auto overflow-x-hidden fixed z-50 justify-center items-center w-full inset-0 max-h-full">
-      <div class="relative p-4 w-full max-w-7xl max-h-full m-auto mt-20">
+      <div class="relative py-4 px-4 md:px-[125px] w-full max-w-7xl max-h-full m-auto mt-20">
         <!-- Modal content -->
         <div class="relative bg-white rounded-lg shadow dark:bg-gray-700" v-click-outside="close">
           <!-- Modal header -->
