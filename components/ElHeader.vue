@@ -1,7 +1,12 @@
 <template>
-    <header class="border-b bg-green-500">
+    <header class="border-b bg-green-500 md:px-20">
       <div class="flex items-center justify-between h-12 text-white max-w-screen-xl mx-auto">
-        <MenuIcon @click="store.mobileMenuShown = true" class="md:hidden ml-4"/>
+        <div @click="store.mobileMenuShown = true" class="flex cursor-pointer">
+          <MenuIcon class="ml-4"/>
+          <span class="pl-2 font-bold hidden md:block">
+            Меню
+          </span>
+        </div>
         <MobileMenu v-if="store.mobileMenuShown"/>
         <NuxtLink class="dark:text-purple-500 font-bold text-logo-main ml-4" to="/">
           Все сказки

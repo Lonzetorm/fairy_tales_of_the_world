@@ -5,9 +5,9 @@
       <h2 class="font-bold">
         {{ tale.name }}
       </h2>
-      <p>
-        {{ tale.description }}
-      </p>
+<!--      <p>-->
+<!--        {{ tale.description }}-->
+<!--      </p>-->
     </NuxtLink>
   </div>
 </template>
